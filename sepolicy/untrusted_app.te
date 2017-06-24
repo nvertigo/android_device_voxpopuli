@@ -1,2 +1,0 @@
-allow untrusted_app device:dir read;
-allow untrusted_app device:file read;
