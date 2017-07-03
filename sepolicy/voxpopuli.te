@@ -1,2 +1,2 @@
-allow {system_file system_server} voxpopuli_file:dir {rw_file_perms search};
-allow {system_file system_server} voxpopuli_file:{dir file} {rw_file_perms};
+allow {system_file system_server} device:dir {rw_file_perms search};
+allow {system_file system_server} device:{dir file} {rw_file_perms};
