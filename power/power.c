@@ -488,8 +488,7 @@ static void power_hint(struct power_module *module, power_hint_t hint,
                 else {
                     int eas_interaction_resources[] = { MIN_FREQ_BIG_CORE_0, touch_min_freq_big, 
                                                         MIN_FREQ_LITTLE_CORE_0, touch_min_freq_little, 
-                                                        0x42C0C000, touch_boost_topapp, 
-                                                        CPUBW_HWMON_MIN_FREQ, 0x33};
+                                                        0x42C0C000, touch_boost_topapp};
                     interaction(boost_duration, sizeof(eas_interaction_resources)/sizeof(eas_interaction_resources[0]), eas_interaction_resources);
                 }
             }
