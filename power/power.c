@@ -132,8 +132,6 @@ int boost_duration;
 int touch_boost_topapp;
 int touch_min_freq_big;
 int touch_min_freq_little;
-unsigned int experimental_opcode;
-int experimental_opcode_value;
 
 static struct hw_module_methods_t power_module_methods = {
     .open = NULL,
@@ -170,9 +168,6 @@ static void power_init(struct power_module *module)
     get_int(TOUCH_BOOST_TOPAPP_PATH, &touch_boost_topapp, 10);
     get_int(TOUCH_MIN_FREQ_BIG_PATH, &touch_min_freq_big, 1113);
     get_int(TOUCH_MIN_FREQ_LITTLE_PATH, &touch_min_freq_little, 1113);
-
-    get_hex(EXPERIMENTAL_OPCODE_PATH, &experimental_opcode, 0);
-    get_int(EXPERIMENTAL_OPCODE_VALUE_PATH, &experimental_opcode_value, 1);
 }
 
 static void process_video_decode_hint(void *metadata)
@@ -486,16 +481,14 @@ static void power_hint(struct power_module *module, power_hint_t hint,
                     int eas_interaction_resources[] = { MIN_FREQ_BIG_CORE_0, fling_min_freq_big, 
                                                         MIN_FREQ_LITTLE_CORE_0, fling_min_freq_little, 
                                                         0x42C0C000, fling_boost_topapp,
-                                                        CPUBW_HWMON_MIN_FREQ, 0x33,
-                                                        experimental_opcode, experimental_opcode_value};
+                                                        CPUBW_HWMON_MIN_FREQ, 0x33};
                     interaction(boost_duration, sizeof(eas_interaction_resources)/sizeof(eas_interaction_resources[0]), eas_interaction_resources);
                 }
                 // Touches/taps
                 else {
                     int eas_interaction_resources[] = { MIN_FREQ_BIG_CORE_0, touch_min_freq_big, 
                                                         MIN_FREQ_LITTLE_CORE_0, touch_min_freq_little, 
-                                                        0x42C0C000, touch_boost_topapp,
-                                                        experimental_opcode, experimental_opcode_value};
+                                                        0x42C0C000, touch_boost_topapp};
                     interaction(boost_duration, sizeof(eas_interaction_resources)/sizeof(eas_interaction_resources[0]), eas_interaction_resources);
                 }
             }

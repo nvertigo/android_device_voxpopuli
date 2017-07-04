@@ -71,9 +71,6 @@
 #define TOUCH_MIN_FREQ_BIG_PATH 		"/dev/voxpopuli/touch_min_freq_big"
 #define TOUCH_MIN_FREQ_LITTLE_PATH 		"/dev/voxpopuli/touch_min_freq_little"
 
-#define EXPERIMENTAL_OPCODE_PATH            "/dev/voxpopuli/experimental_opcode"
-#define EXPERIMENTAL_OPCODE_VALUE_PATH      "/dev/voxpopuli/experimental_opcode_value"
-
 #define HINT_HANDLED (0)
 #define HINT_NONE (-1)
 
